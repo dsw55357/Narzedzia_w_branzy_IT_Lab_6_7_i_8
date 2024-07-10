@@ -1,18 +1,18 @@
 
-```markdown
+
 # Opis projektu: Program do konwersji danych obsługujący formaty: .xml, .json i .yml (.yaml)
 
 ## Implementacja programu
 
 ### Zainstaluj niezbędne biblioteki:
 
-```sh
+
 pip install pyyaml
-```
+
 
 ### Napisz program `project.py`:
 
-```python
+
 import sys
 import json
 import yaml
@@ -115,27 +115,25 @@ def main():
 
 if __name__ == "__main__":
     main()
-```
+
 
 ## Tworzenie pliku .exe przy użyciu PyInstaller
 
 ### Zainstaluj PyInstaller:
 
-```sh
+
 pip install pyinstaller
-```
+
 
 ### Użyj PyInstaller, aby wygenerować plik .exe:
 
-```sh
+
 pyinstaller --onefile project.py
-```
+
 
 ## Uruchomienie programu
 
 Po wykonaniu powyższych kroków, możesz uruchomić program z pliku .exe w następujący sposób:
 
-```sh
+
 program.exe pathFile1.x pathFile2.y
-```
-```
