@@ -1,29 +1,4 @@
 
-
-# Opis projektu: Program do konwersji danych obsługujący formaty: .xml, .json i .yml (.yaml)
-
-## Implementacja programu
-
-### Zainstaluj niezbędne biblioteki:
-
-
-pip install pyyaml
-
-
-lub
-
-
-## Install packages with pip and requirements.txt
-
-The following command installs packages in bulk according to the configuration file, `requirements.txt`. In some environments, use `pip3` instead of `pip`.
-
-$ pip install -r requirements.txt
-
-
-
-### Napisz program `project.py`:
-
-
 import sys
 import json
 import yaml
@@ -126,25 +101,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-## Tworzenie pliku .exe przy użyciu PyInstaller
-
-### Zainstaluj PyInstaller:
-
-
-pip install pyinstaller
-
-
-### Użyj PyInstaller, aby wygenerować plik .exe:
-
-
-pyinstaller --onefile project.py
-
-
-## Uruchomienie programu
-
-Po wykonaniu powyższych kroków, możesz uruchomić program z pliku .exe w następujący sposób:
-
-
-program.exe data.json result.xml
