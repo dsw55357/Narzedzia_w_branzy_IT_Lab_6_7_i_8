@@ -6,7 +6,7 @@ on:
     - cron: '0 0 * * MON'
   push:
     branches:
-      - main
+      - master
   workflow_dispatch:
 
 jobs:
@@ -18,11 +18,13 @@ jobs:
       uses: actions/checkout@v3
       with:
         ref: Task0  # Checkout the Task0 branch
+      node-version: '20'
 
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.x'
+      node-version: '20'
 
     - name: Install dependencies
       run: ./installResources.sh
@@ -32,6 +34,7 @@ jobs:
       uses: actions/checkout@v3
       with:
         ref: main  # Checkout the main branch
+      node-version: '20'
 
     - name: Display environment info
       run: |
@@ -56,3 +59,4 @@ jobs:
       with:
         name: project-executable
         path: dist/project.exe
+      node-version: '20'
