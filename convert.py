@@ -3,6 +3,7 @@ import sys
 import json
 import yaml
 import xml.etree.ElementTree as ET
+import argparse
 
 def read_xml(file_path):
     tree = ET.parse(file_path)
@@ -85,13 +86,40 @@ def convert(file_in, file_out):
     else:
         raise ValueError("Unsupported output file format")
 
+"""
+
+Parsowanie argumentów przekazywanych przy uruchomieniu programu w obecnym kodzie jest podstawowe i działa, ale można to zrobić lepiej i bardziej elegancko przy użyciu biblioteki argparse, która jest standardową biblioteką Pythona do parsowania argumentów wiersza poleceń.
+
+można skorzystać z biblioteki argparse 
+
+dadajemy
+
+import argparse
+
+"""
+
+
 def main():
+
+    """
+    poprzednie rozwiązanie
+
     if len(sys.argv) != 3:
         print("Usage: program.exe pathFile1.x pathFile2.y")
         sys.exit(1)
 
     file_in = sys.argv[1]
     file_out = sys.argv[2]
+    """
+
+    parser = argparse.ArgumentParser(description="Convert data between XML, JSON, and YAML formats.")
+    parser.add_argument('input_file', help="Input file path")
+    parser.add_argument('output_file', help="Output file path")
+
+    args = parser.parse_args()
+
+    file_in = args.input_file
+    file_out = args.output_file
 
     try:
         convert(file_in, file_out)
