@@ -56,4 +56,3 @@ jobs:
       with:
         name: project-executable
         path: dist/project.exe
-      node-version: '20'
