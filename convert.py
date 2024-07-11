@@ -59,9 +59,28 @@ def read_json(file_path):
         print(f"Error: Invalid JSON syntax in file {file_path}: {e}")
         sys.exit(1)
 
+"""
+
+Usprawnienia: write_json()
+
+Obsługa wyjątków: Funkcja write_json zawiera teraz blok try-except, który przechwytuje wszelkie błędy wejścia/wyjścia (IOError) podczas zapisywania pliku.
+
+Kontekst menedżera: Zastosowanie with open(file_path, 'w') as file: zapewnia, że plik zostanie poprawnie zamknięty, nawet jeśli wystąpi błąd.
+
+Lepsze formatowanie: Opcje indent=4 i sort_keys=True w json.dump poprawiają czytelność i przewidywalność zapisanego pliku JSON.
+
+Dodatkowy komunikat: Informacja o sukcesie zapisu danych do pliku została dodana w funkcji write_json.
+
+"""
+
 def write_json(data, file_path):
-    with open(file_path, 'w') as file:
-        json.dump(data, file, indent=4)
+    try:
+        with open(file_path, 'w') as file:
+            json.dump(data, file, indent=4, sort_keys=True)
+        print(f"Data successfully written to {file_path}")
+    except IOError as e:
+        print(f"Error writing to file {file_path}: {e}")
+        sys.exit(1)
 
 def read_yaml(file_path):
     with open(file_path, 'r') as file:
