@@ -52,8 +52,12 @@ def write_xml(data, file_path):
     tree.write(file_path)
 
 def read_json(file_path):
-    with open(file_path, 'r') as file:
-        return json.load(file)
+    try:
+        with open(file_path, 'r') as file:
+            return json.load(file)
+    except json.JSONDecodeError as e:
+        print(f"Error: Invalid JSON syntax in file {file_path}: {e}")
+        sys.exit(1)
 
 def write_json(data, file_path):
     with open(file_path, 'w') as file:
